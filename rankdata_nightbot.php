@@ -102,6 +102,7 @@
 	}
 
   $RL_tracker = @file_get_contents('https://rocketleague.tracker.network/rocket-league/profile/'.$plat.'/'.$user.'/overview'); // get html code
+	die($RL_tracker);
 
 	preg_match_all("/\"segments\":(.+?),\"availableSegments\"/is", $RL_tracker, $first); // first = json of stats and rank data
 	preg_match_all("/\"platformUserHandle\":\"(.+?)\",\"platformUserIdentifier\"/is", $RL_tracker, $name); // fetch name
