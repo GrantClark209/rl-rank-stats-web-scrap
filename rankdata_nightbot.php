@@ -102,7 +102,6 @@
 	}
 
   $RL_tracker = @file_get_contents('https://rocketleague.tracker.network/rocket-league/profile/'.$plat.'/'.$user.'/overview'); // get html code
-	die($RL_tracker);
 
 	preg_match_all("/\"segments\":(.+?),\"availableSegments\"/is", $RL_tracker, $first); // first = json of stats and rank data
 	preg_match_all("/\"platformUserHandle\":\"(.+?)\",\"platformUserIdentifier\"/is", $RL_tracker, $name); // fetch name
@@ -133,6 +132,8 @@
 	// shortened playlist names / associations
 	$rankedPlaylists = array('Ranked Duel 1v1'=>'1v1', 'Ranked Doubles 2v2'=>'2v2', 'Ranked Standard 3v3'=>'3v3', 'Tournament Matches' => 'Tournament');
 	$extraPlaylists = array('Hoops', 'Rumble', 'Dropshot', 'Snowday');
+
+	die($rankData['stats']['Wins']);
 
 	if(count($data) > 1 ) { // not sure if consistent yet, maybe needs some revamp
 		foreach ($rankedPlaylists as $key => $value) {
